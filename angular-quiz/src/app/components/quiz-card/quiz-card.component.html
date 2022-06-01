@@ -1,0 +1,27 @@
+<div class="quiz-card-container">
+  <h3>{{ quiz.id }}. {{ quiz.question }}</h3>
+  <!-- render options: -->
+  <div class="quiz-options">
+    <!--  -->
+    <ol type="A">
+      <div class="quizzes-wrapper" *ngFor="let option of quiz.options">
+        <li
+          class="quiz-option"
+          [class.selected]="option.isSelected"
+          [class.correct]="option.isCorrect && isSend"
+          [class.wrong]="!option.isCorrect && isSend"
+          (click)="onSelect(option)"
+        >
+          <span class="list-option-span">
+            {{ option.label }}
+          </span>
+        </li>
+      </div>
+    </ol>
+  </div>
+  <div class="send-btn-wrapper">
+    <button (click)="onSend(quiz.options)" class="send-btn">Send</button>
+  </div>
+</div>
+
+<!-- {{ option.tag }}. {{ option.label }} -->

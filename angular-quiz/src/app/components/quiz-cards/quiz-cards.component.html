@@ -1,0 +1,20 @@
+<!-- this component will contain all of the quizzes -->
+<h3>Catrgory: {{ quizzes[0].category }}</h3>
+
+<button
+  (click)="quizzesService.onRandomizeQuizzes()"
+  class="randomize-quizzes-btn"
+>
+  Randomize quizzes
+</button>
+
+<button
+  (click)="quizzesService.onRandomizeQuizOptions()"
+  class="randomize-quizz-options-btn"
+>
+  Randomize quizz options
+</button>
+
+<div *ngFor="let quiz of quizzes; index as i" class="quiz-card">
+  <app-quiz-card [quiz]="quiz" [index]="i"> </app-quiz-card>
+</div>
