@@ -4,11 +4,14 @@
 <h3 class="select-heading">Selecteaza tipul de grile:</h3>
 
 <div class="quizzes-menu-buttons">
-  <button (click)="onSelectSisteme()" class="menu-btn">
+  <button (click)="onSelectQuiz('sisteme_operare')" class="menu-btn">
     Sisteme de operare
   </button>
-  <button (click)="onSelectRetele()" class="menu-btn">
+  <button (click)="onSelectQuiz('retele')" class="menu-btn">
     Retele de calculatoare
+  </button>
+  <button (click)="onSelectQuiz('securitate')" class="menu-btn">
+    Securitate
   </button>
 </div>
 

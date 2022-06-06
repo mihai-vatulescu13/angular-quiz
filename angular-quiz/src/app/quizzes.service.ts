@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 // get quizzes data:
 import { quizzesListOperatingSystems } from './quizzes-data/QUIZ_DATA_OS';
 import { quizzesListRetele } from './quizzes-data/QUIZ_DATA_RETELE';
+import { quizzesListSecuritate } from './quizzes-data/QUIZ_DATA_SECURITATE';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuizzesService {
   constructor() {}
+
+  //by default se va randa grila de la sisteme de operare:
+  public currentQuizzesLabel: string = 'sisteme_operare';
 
   // public quizzes: any = quizzesListOperatingSystems;
   public quizzes: any = quizzesListOperatingSystems;
@@ -23,12 +27,20 @@ export class QuizzesService {
     }
   }
 
-  //by default se va randa grila de la sisteme de operare:
-  public selectSisteme(): void {
-    this.quizzes = quizzesListOperatingSystems;
-  }
+  //generic quiz method selector:
+  public selectQuiz(selectedQuizLabel: any): void {
+    this.currentQuizzesLabel = selectedQuizLabel;
 
-  public selectRetele(): void {
-    this.quizzes = quizzesListRetele;
+    if (this.currentQuizzesLabel === 'sisteme_operare') {
+      this.quizzes = quizzesListOperatingSystems;
+    }
+
+    if (this.currentQuizzesLabel === 'retele') {
+      this.quizzes = quizzesListRetele;
+    }
+
+    if (this.currentQuizzesLabel === 'securitate') {
+      this.quizzes = quizzesListSecuritate;
+    }
   }
 }
