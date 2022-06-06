@@ -8,4 +8,12 @@ import { QuizzesService } from './quizzes.service';
 })
 export class AppComponent {
   constructor(public quizzesService: QuizzesService) {}
+
+  public onSelectSisteme(): void {
+    this.quizzesService.selectSisteme();
+  }
+
+  public onSelectRetele(): void {
+    this.quizzesService.selectRetele();
+  }
 }

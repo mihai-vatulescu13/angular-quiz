@@ -1,4 +1,4 @@
-export const quizzesList = [
+export const quizzesListOperatingSystems = [
   //first question:
   {
     id: 1,

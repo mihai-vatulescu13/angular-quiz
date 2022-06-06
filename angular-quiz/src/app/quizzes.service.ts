@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 // get quizzes data:
-import { quizzesList } from './QUIZ_DATA';
+import { quizzesListOperatingSystems } from './quizzes-data/QUIZ_DATA_OS';
+import { quizzesListRetele } from './quizzes-data/QUIZ_DATA_RETELE';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,8 @@ import { quizzesList } from './QUIZ_DATA';
 export class QuizzesService {
   constructor() {}
 
-  public quizzes: any = quizzesList;
+  // public quizzes: any = quizzesListOperatingSystems;
+  public quizzes: any = quizzesListOperatingSystems;
 
   //method that randomize quizzes for a certain category:
   public onRandomizeQuizzes(): void {
@@ -19,5 +21,14 @@ export class QuizzesService {
     for (let i = 0; i < this.quizzes.length - 1; i++) {
       this.quizzes[i].options.sort(() => Math.random() - 0.5);
     }
+  }
+
+  //by default se va randa grila de la sisteme de operare:
+  public selectSisteme(): void {
+    this.quizzes = quizzesListOperatingSystems;
+  }
+
+  public selectRetele(): void {
+    this.quizzes = quizzesListRetele;
   }
 }

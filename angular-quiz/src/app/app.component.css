@@ -3,3 +3,23 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 200;
 }
+
+.menu-btn {
+  background-color: purple;
+  padding: 10px;
+  width: 200px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.quizzes-menu-buttons {
+  background-color: rgb(61, 61, 61);
+}
+
+.select-heading {
+  margin: 10px;
+}

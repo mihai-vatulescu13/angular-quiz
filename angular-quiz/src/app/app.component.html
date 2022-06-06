@@ -1,6 +1,15 @@
 <h1>Exerseaza pentru licentă</h1>
 
 <!-- render here all of the quizzes: -->
-<h3>questios:</h3>
+<h3 class="select-heading">Selecteaza tipul de grile:</h3>
+
+<div class="quizzes-menu-buttons">
+  <button (click)="onSelectSisteme()" class="menu-btn">
+    Sisteme de operare
+  </button>
+  <button (click)="onSelectRetele()" class="menu-btn">
+    Retele de calculatoare
+  </button>
+</div>
 
 <app-quiz-cards [quizzes]="quizzesService.quizzes"></app-quiz-cards>
