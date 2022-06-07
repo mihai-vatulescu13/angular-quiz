@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { quizzesListOperatingSystems } from './quizzes-data/QUIZ_DATA_OS';
 import { quizzesListRetele } from './quizzes-data/QUIZ_DATA_RETELE';
 import { quizzesListSecuritate } from './quizzes-data/QUIZ_DATA_SECURITATE';
+import { quizzesListArhitectura } from './quizzes-data/QUIZ_DATA_ARHITECTURA';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,10 @@ export class QuizzesService {
 
     if (this.currentQuizzesLabel === 'securitate') {
       this.quizzes = quizzesListSecuritate;
+    }
+
+    if (this.currentQuizzesLabel === 'arhitectura') {
+      this.quizzes = quizzesListArhitectura;
     }
   }
 }

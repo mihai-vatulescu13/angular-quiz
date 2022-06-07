@@ -1,5 +1,11 @@
 <div class="quiz-card-container">
   <h3>{{ index + 1 }}. {{ quiz.question }}</h3>
+  <img
+    class="question-img-style"
+    *ngIf="quiz.questionImg"
+    [src]="quiz.questionImg"
+    alt=""
+  />
   <!-- render options: -->
   <div class="quiz-options">
     <!--  -->
@@ -15,6 +21,12 @@
           <span class="list-option-span">
             {{ option.label }}
           </span>
+          <img
+            class="ans-img-style"
+            *ngIf="option.ansImg"
+            [src]="option.ansImg"
+            alt=""
+          />
         </li>
       </div>
     </ol>
@@ -23,5 +35,3 @@
     <button (click)="onSend(quiz.options)" class="send-btn">Send</button>
   </div>
 </div>
-
-<!-- {{ option.tag }}. {{ option.label }} -->

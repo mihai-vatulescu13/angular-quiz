@@ -1,7 +1,8 @@
 .quiz-card-container {
   border: 1px solid gray;
   border-radius: 7px;
-  width: 500px;
+  width: 100%;
+  max-width: 600px;
   padding: 10px;
   margin: 10px;
   height: auto;
@@ -77,3 +78,7 @@ h3 {
 /* .list-option-span {
   color: white;
 } */
+
+.question-img-style {
+  width: 100%;
+}
