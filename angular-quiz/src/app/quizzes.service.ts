@@ -4,6 +4,7 @@ import { quizzesListOperatingSystems } from './quizzes-data/QUIZ_DATA_OS';
 import { quizzesListRetele } from './quizzes-data/QUIZ_DATA_RETELE';
 import { quizzesListSecuritate } from './quizzes-data/QUIZ_DATA_SECURITATE';
 import { quizzesListArhitectura } from './quizzes-data/QUIZ_DATA_ARHITECTURA';
+import { quizzesListPorgramareC } from './quizzes-data/QUIZ_DATA_PROGRAMAREC';
 
 @Injectable({
   providedIn: 'root',
@@ -46,6 +47,10 @@ export class QuizzesService {
 
     if (this.currentQuizzesLabel === 'arhitectura') {
       this.quizzes = quizzesListArhitectura;
+    }
+
+    if (this.currentQuizzesLabel === 'programare_c') {
+      this.quizzes = quizzesListPorgramareC;
     }
   }
 }
