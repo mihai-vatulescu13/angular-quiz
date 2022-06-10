@@ -5,6 +5,7 @@ import { quizzesListRetele } from './quizzes-data/QUIZ_DATA_RETELE';
 import { quizzesListSecuritate } from './quizzes-data/QUIZ_DATA_SECURITATE';
 import { quizzesListArhitectura } from './quizzes-data/QUIZ_DATA_ARHITECTURA';
 import { quizzesListPorgramareC } from './quizzes-data/QUIZ_DATA_PROGRAMAREC';
+import { quizzesListOOP } from './quizzes-data/QUIZ_DATA_OOP';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,7 @@ export class QuizzesService {
 
   // public quizzes: any = quizzesListOperatingSystems;
   public quizzes: any = quizzesListOperatingSystems;
+  public allRandomizedQuizzes: any = [];
 
   //method that randomize quizzes for a certain category:
   public onRandomizeQuizzes(): void {
@@ -29,8 +31,38 @@ export class QuizzesService {
     }
   }
 
+  public pushRandomQuizzesTuple(selectedQuizzesList: any): void {
+    let randomQuiz: any =
+      selectedQuizzesList[
+        Math.floor(Math.random() * selectedQuizzesList.length)
+      ];
+
+    //this will have a side effect to the all randomized quizzes array:
+    if (
+      !this.allRandomizedQuizzes.some((quiz: any) => {
+        return quiz.id === randomQuiz.id;
+      })
+    ) {
+      this.allRandomizedQuizzes.push(randomQuiz);
+    }
+  }
+
+  public setAllQuizes(): void {
+    for (let i = 0; i < 3; i++) {
+      this.pushRandomQuizzesTuple(quizzesListOperatingSystems);
+      this.pushRandomQuizzesTuple(quizzesListRetele);
+      this.pushRandomQuizzesTuple(quizzesListSecuritate);
+      this.pushRandomQuizzesTuple(quizzesListArhitectura);
+      this.pushRandomQuizzesTuple(quizzesListPorgramareC);
+      this.pushRandomQuizzesTuple(quizzesListOOP);
+    }
+
+    this.quizzes = this.allRandomizedQuizzes;
+  }
+
   //generic quiz method selector:
   public selectQuiz(selectedQuizLabel: any): void {
+    //the label gets updated depending by the parameter:
     this.currentQuizzesLabel = selectedQuizLabel;
 
     if (this.currentQuizzesLabel === 'sisteme_operare') {
@@ -51,6 +83,15 @@ export class QuizzesService {
 
     if (this.currentQuizzesLabel === 'programare_c') {
       this.quizzes = quizzesListPorgramareC;
+    }
+
+    if (this.currentQuizzesLabel === 'OOP') {
+      this.quizzes = quizzesListOOP;
+    }
+
+    if (this.currentQuizzesLabel === 'all_quizzes') {
+      // this.quizzes = quizzesListOOP;
+      this.setAllQuizes();
     }
   }
 }
