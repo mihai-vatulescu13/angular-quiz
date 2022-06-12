@@ -6,6 +6,7 @@ import { quizzesListSecuritate } from './quizzes-data/QUIZ_DATA_SECURITATE';
 import { quizzesListArhitectura } from './quizzes-data/QUIZ_DATA_ARHITECTURA';
 import { quizzesListPorgramareC } from './quizzes-data/QUIZ_DATA_PROGRAMAREC';
 import { quizzesListOOP } from './quizzes-data/QUIZ_DATA_OOP';
+import { quizzesListJava } from './quizzes-data/QUIZ_DATA_JAVA';
 
 @Injectable({
   providedIn: 'root',
@@ -48,13 +49,15 @@ export class QuizzesService {
   }
 
   public setAllQuizes(): void {
-    for (let i = 0; i < 3; i++) {
+    //previous value:3
+    for (let i = 0; i < 4; i++) {
       this.pushRandomQuizzesTuple(quizzesListOperatingSystems);
       this.pushRandomQuizzesTuple(quizzesListRetele);
       this.pushRandomQuizzesTuple(quizzesListSecuritate);
       this.pushRandomQuizzesTuple(quizzesListArhitectura);
       this.pushRandomQuizzesTuple(quizzesListPorgramareC);
       this.pushRandomQuizzesTuple(quizzesListOOP);
+      this.pushRandomQuizzesTuple(quizzesListJava);
     }
 
     this.quizzes = this.allRandomizedQuizzes;
@@ -87,6 +90,10 @@ export class QuizzesService {
 
     if (this.currentQuizzesLabel === 'OOP') {
       this.quizzes = quizzesListOOP;
+    }
+
+    if (this.currentQuizzesLabel === 'java') {
+      this.quizzes = quizzesListJava;
     }
 
     if (this.currentQuizzesLabel === 'all_quizzes') {
