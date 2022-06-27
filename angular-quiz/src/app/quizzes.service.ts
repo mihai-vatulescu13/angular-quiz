@@ -7,6 +7,8 @@ import { quizzesListArhitectura } from './quizzes-data/QUIZ_DATA_ARHITECTURA';
 import { quizzesListPorgramareC } from './quizzes-data/QUIZ_DATA_PROGRAMAREC';
 import { quizzesListOOP } from './quizzes-data/QUIZ_DATA_OOP';
 import { quizzesListJava } from './quizzes-data/QUIZ_DATA_JAVA';
+import { quizzesListGrafuri } from './quizzes-data/QUIZ_DATA_GRAFURI';
+import { quizzesListCorectitudine } from './quizzes-data/QUIZ_DATA_CORECTITUDINE';
 
 @Injectable({
   providedIn: 'root',
@@ -58,6 +60,7 @@ export class QuizzesService {
       this.pushRandomQuizzesTuple(quizzesListPorgramareC);
       this.pushRandomQuizzesTuple(quizzesListOOP);
       this.pushRandomQuizzesTuple(quizzesListJava);
+      this.pushRandomQuizzesTuple(quizzesListGrafuri);
     }
 
     this.quizzes = this.allRandomizedQuizzes;
@@ -94,6 +97,14 @@ export class QuizzesService {
 
     if (this.currentQuizzesLabel === 'java') {
       this.quizzes = quizzesListJava;
+    }
+
+    if (this.currentQuizzesLabel === 'grafuri') {
+      this.quizzes = quizzesListGrafuri;
+    }
+
+    if (this.currentQuizzesLabel === 'corectitudine') {
+      this.quizzes = quizzesListCorectitudine;
     }
 
     if (this.currentQuizzesLabel === 'all_quizzes') {
