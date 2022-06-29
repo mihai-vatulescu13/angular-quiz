@@ -9,6 +9,7 @@ import { quizzesListOOP } from './quizzes-data/QUIZ_DATA_OOP';
 import { quizzesListJava } from './quizzes-data/QUIZ_DATA_JAVA';
 import { quizzesListGrafuri } from './quizzes-data/QUIZ_DATA_GRAFURI';
 import { quizzesListCorectitudine } from './quizzes-data/QUIZ_DATA_CORECTITUDINE';
+import { quizzesListBazeDeDate } from './quizzes-data/QUIZ_DATA_BAZE_DATE';
 
 @Injectable({
   providedIn: 'root',
@@ -61,6 +62,8 @@ export class QuizzesService {
       this.pushRandomQuizzesTuple(quizzesListOOP);
       this.pushRandomQuizzesTuple(quizzesListJava);
       this.pushRandomQuizzesTuple(quizzesListGrafuri);
+      this.pushRandomQuizzesTuple(quizzesListCorectitudine);
+      this.pushRandomQuizzesTuple(quizzesListBazeDeDate);
     }
 
     this.quizzes = this.allRandomizedQuizzes;
@@ -105,6 +108,10 @@ export class QuizzesService {
 
     if (this.currentQuizzesLabel === 'corectitudine') {
       this.quizzes = quizzesListCorectitudine;
+    }
+
+    if (this.currentQuizzesLabel === 'baze_de_date') {
+      this.quizzes = quizzesListBazeDeDate;
     }
 
     if (this.currentQuizzesLabel === 'all_quizzes') {
